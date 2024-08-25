@@ -1,7 +1,9 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/frontend_assets/assets";
 function Navbar() {
+	const [visible, setIsVisible] = useState(false);
+
 	return (
 		<nav className="flex items-center justify-between font-medium text-sm py-5 px-10">
 			<img src={assets.nexa_logo} alt="nexa_logo" className="w-24" />
@@ -47,12 +49,64 @@ function Navbar() {
 					</div>
 				</div>
 
-				<div className="relative">
+				<Link to="/cart" className="relative">
 					<img src={assets.cart_icon} className="w-5 min-w-4" alt="cart_icon" />
 
-					<div className="absolute right-[-5px] bottom-[-5px] w-4 h-4 leading-4 aspect-square rounded-full bg-black text-white text-center text-[8px]">
+					<p className="absolute right-[-5px] bottom-[-5px] w-4 h-4 leading-4 aspect-square rounded-full bg-black text-white text-center text-[8px]">
 						10
+					</p>
+				</Link>
+
+				<img
+					src={assets.menu_icon}
+					alt="menu_icon"
+					className="w-5 cursor-pointer sm:hidden"
+					onClick={() => setIsVisible(true)}
+				/>
+			</div>
+
+			{/* Sidebar for smaller screens */}
+			<div
+				className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
+					visible ? "w-full" : "w-0"
+				}`}
+			>
+				<div className="flex flex-col text-gray-600">
+					<div
+						onClick={() => setIsVisible(false)}
+						className="flex items-center gap-3 p-3 cursor-pointer"
+					>
+						<img className="h-4 rotate-180" src={assets.dropdown_icon} alt="" />
+						<p>Back</p>
 					</div>
+					<NavLink
+						onClick={() => setIsVisible(false)}
+						className="py-2 pl-6 border"
+						to="/"
+					>
+						HOME
+					</NavLink>
+					<NavLink
+						onClick={() => setIsVisible(false)}
+						className="py-2 pl-6 border"
+						to="/collection"
+					>
+						COLLECTION
+					</NavLink>
+					<NavLink
+						onClick={() => setIsVisible(false)}
+						className="py-2 pl-6 border"
+						to="/about"
+					>
+						ABOUT
+					</NavLink>
+					<NavLink
+						onClick={() => setIsVisible(false)}
+						className="py-2 pl-6 border"
+						to="/contact"
+					>
+						CONTACT
+					</NavLink>
 				</div>
 			</div>
 		</nav>
