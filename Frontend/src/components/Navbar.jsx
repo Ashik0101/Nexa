@@ -5,7 +5,7 @@ function Navbar() {
 	const [visible, setIsVisible] = useState(false);
 
 	return (
-		<nav className="flex items-center justify-between font-medium text-sm py-5 px-10">
+		<nav className="flex items-center justify-between font-medium text-sm py-5">
 			<img src={assets.nexa_logo} alt="nexa_logo" className="w-24" />
 
 			<ul className="hidden sm:flex text-sm gap-5">
