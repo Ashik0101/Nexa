@@ -6,7 +6,9 @@ function Navbar() {
 
 	return (
 		<nav className="flex items-center justify-between font-medium text-sm py-5">
-			<img src={assets.nexa_logo} alt="nexa_logo" className="w-24" />
+			<Link to="/">
+				<img src={assets.nexa_logo} alt="nexa_logo" className="w-24" />
+			</Link>
 
 			<ul className="hidden sm:flex text-sm gap-5">
 				<NavLink to={"/"} className="flex flex-col items-center">
