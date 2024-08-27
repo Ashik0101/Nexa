@@ -5,6 +5,7 @@ import Title from "../components/Title";
 import BestSeller from "../components/BestSeller";
 import OurPolicy from "../components/OurPolicy";
 import NewsLetterBox from "../components/NewsLetterBox";
+import Footer from "../components/Footer";
 
 const Home = () => {
 	return (
@@ -14,6 +15,7 @@ const Home = () => {
 			<BestSeller />
 			<OurPolicy />
 			<NewsLetterBox />
+			<Footer />
 		</>
 	);
 };
